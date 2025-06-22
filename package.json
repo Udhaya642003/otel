@@ -4,24 +4,40 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "analyze": "cross-env ANALYZE=true npm run build",
+    "build:otel": "cross-env OTEL_LOG_LEVEL=debug npm run dev",
     "build": "next build",
+    "buildd": "next build --experimental-debug-memory-usage",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^15.3.3",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/api-logs": "^0.57.2",
+    "@opentelemetry/auto-instrumentations-node": "^0.60.1",
+    "@opentelemetry/instrumentation": "^0.57.2",
+    "@opentelemetry/instrumentation-fetch": "^0.202.0",
+    "@opentelemetry/resources": "^2.0.1",
+    "@opentelemetry/sdk-logs": "^0.57.2",
+    "@opentelemetry/sdk-metrics": "^1.30.1",
+    "@opentelemetry/sdk-node": "^0.202.0",
+    "@opentelemetry/sdk-trace-node": "^2.0.1",
+    "@vercel/otel": "^1.13.0",
+    "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
